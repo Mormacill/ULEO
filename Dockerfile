@@ -28,5 +28,19 @@ ENV MODULEPATH=/opt/apps
 
 RUN echo 'source $LMODINSTPATH/lmod/8.4/init/bash' >> /root/.bashrc
 
+
+#easybuild
+RUN useradd -ms /bin/bash easybuild_user
+RUN apt-get install -y python3 python3-pip
+RUN wget https://github.com/easybuilders/easybuild/archive/easybuild-v4.3.1.tar.gz && tar -xvf easybuild-v4.3.1.tar.gz
+RUN cd easybuild-easybuild-v4.3.1 && pip3 install --install-option "--prefix=$HOME/EasyBuild" .
+RUN cp -r /root/EasyBuild /home/easybuild_user && chown -R easybuild_user:easybuild_user /home/easybuild_user/EasyBuild
+USER easybuild_user
+RUN cd /home/easybuild_user/EasyBuild/bin && python3 bootstrap_eb.py /home/easybuild_user/.local/EasyBuildInst
+ENV MODULEPATH=$MODULEPATH:/home/easybuild_user/.local/EasyBuildInst/modules/all
+
+RUN apt-get install -y libssl-dev
+
+
 #entrypoint
 ENTRYPOINT /bin/bash
