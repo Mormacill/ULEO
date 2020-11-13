@@ -27,7 +27,7 @@ RUN mkdir /opt/apps
 ENV MODULEPATH=/opt/apps
 
 #entrypoint
-#RUN echo '#!/bin/bash' > /entrypoint.sh
-#RUN echo 'source $LMODINSTPATH/lmod/8.4/init/bash' >> /entrypoint.sh
-#RUN chmod +x /entrypoint.sh
-#ENTRYPOINT /entrypoint.sh
+RUN echo '#!/bin/bash' > /entrypoint.sh
+RUN echo 'source $LMODINSTPATH/lmod/8.4/init/bash' >> /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT /entrypoint.sh && /bin/bash
