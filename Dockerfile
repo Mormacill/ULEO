@@ -39,6 +39,7 @@ USER easybuild_user
 RUN cd /home/easybuild_user/EasyBuild/bin && python3 bootstrap_eb.py $HOME/.local/EasyBuildInst
 ENV MODULEPATH=$MODULEPATH:/home/easybuild_user/.local/EasyBuildInst/modules/all
 
+USER root
 RUN apt-get install -y libssl-dev
 
 
