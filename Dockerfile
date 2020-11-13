@@ -36,7 +36,7 @@ RUN wget https://github.com/easybuilders/easybuild/archive/easybuild-v4.3.1.tar.
 RUN cd easybuild-easybuild-v4.3.1 && pip3 install --install-option "--prefix=$HOME/EasyBuild" .
 RUN cp -r /root/EasyBuild /home/easybuild_user && chown -R easybuild_user:easybuild_user /home/easybuild_user/EasyBuild
 USER easybuild_user
-RUN cd /home/easybuild_user/EasyBuild/bin && python3 bootstrap_eb.py /home/easybuild_user/.local/EasyBuildInst
+RUN cd /home/easybuild_user/EasyBuild/bin && python3 bootstrap_eb.py $HOME/.local/EasyBuildInst
 ENV MODULEPATH=$MODULEPATH:/home/easybuild_user/.local/EasyBuildInst/modules/all
 
 RUN apt-get install -y libssl-dev
