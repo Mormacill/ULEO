@@ -20,7 +20,7 @@ RUN cd /root
 #lmod
 RUN wget https://sourceforge.net/projects/lmod/files/Lmod-8.4.tar.bz2 
 RUN tar -xvf Lmod-8.4.tar.bz2
-RUN apt-get install tcl-dev
+RUN apt-get install -y tcl-dev
 RUN cd Lmod-8.4 && ./configure --prefix=$LMODINSTPATH && make install
 RUN export PATH=$LMODINSTPATH/lmod/6.1/libexec:$PATH
 RUN source $LMODINSTPATH/lmod/8.4/init/bash
