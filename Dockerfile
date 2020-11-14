@@ -35,8 +35,10 @@ RUN mkdir /opt/apps
 ENV MODULEPATH=/opt/apps/modules/all
 
 RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /root/.bashrc
-RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /etc/skel/.bashrc
-RUN echo 'export MODULEPATH=/opt/apps/modules/all' >> /etc/skel/.bashrc
+RUN touch /etc/bashrc_additions
+RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /etc/bashrc_additions
+RUN echo 'export MODULEPATH=/opt/apps/modules/all' >> /etc/bashrc_additions
+RUN echo 'source /etc/bashrc_additions' >> /etc/skel/.bashrc
 
 
 #easybuild
