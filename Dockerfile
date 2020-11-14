@@ -32,11 +32,11 @@ RUN apt-get install -y tcl-dev
 RUN cd Lmod-$LMODVERSION && ./configure --prefix=$LMODINSTPATH && make install
 ENV PATH=$LMODINSTPATH/lmod/$LMODVERSION/libexec:$PATH
 RUN mkdir /opt/apps
-ENV MODULEPATH=/opt/apps
+ENV MODULEPATH=/opt/apps/modules/all
 
 RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /root/.bashrc
 RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /etc/skel/.bashrc
-RUN echo 'export MODULEPATH=/opt/apps' >> /etc/skel/.bashrc
+RUN echo 'export MODULEPATH=/opt/apps/modules/all' >> /etc/skel/.bashrc
 
 
 #easybuild
