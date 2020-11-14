@@ -2,11 +2,14 @@ FROM ubuntu:20.04
 
 ENV LUAINSTPATH=/usr/sbin
 ENV LUAVERSION=5.1.4.9
+#check available Versions at https://sourceforge.net/projects/lmod/files/Lmod
 
 ENV LMODINSTPATH=$LUAINSTPATH
 ENV LMODVERSION=8.4
+#check available Versions at https://sourceforge.net/projects/lmod/files/Lmod
 
 ENV EASYBUILDVERSION=4.3.1
+#check available Versions at https://github.com/easybuilders/easybuild/releases
 
 #timezone
 ENV TZ=Europe/Berlin
