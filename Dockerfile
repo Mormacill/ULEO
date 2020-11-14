@@ -19,11 +19,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y apt-utils wget nano sudo build-essential zip rsync
 
 #lua
-RUN wget https://downloads.sourceforge.net/project/lmod/lua-$LUAVERSION.tar.bz2
+RUN cd /root && wget https://downloads.sourceforge.net/project/lmod/lua-$LUAVERSION.tar.bz2
 RUN tar -xvf lua-$LUAVERSION.tar.bz2
 RUN cd lua-$LUAVERSION && ./configure --with-static=yes --prefix=$LUAINSTPATH/lua && make && make install
 ENV PATH=$LUAINSTPATH/lua/bin:$PATH
-RUN cd /root
 
 #lmod
 RUN wget https://sourceforge.net/projects/lmod/files/Lmod-$LMODVERSION.tar.bz2 
