@@ -54,7 +54,7 @@ RUN echo 'export MODULEPATH=$MODULEPATH:/home/easybuild_user/.local/EasyBuildIns
 
 USER root
 RUN chown easybuild_user:easybuild_user /opt/apps
-RUN apt-get install -y libssl-dev
+RUN apt-get install -y libssl-dev git
 
 
 #entrypoint
