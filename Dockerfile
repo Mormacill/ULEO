@@ -42,18 +42,18 @@ RUN echo 'source /etc/bashrc_additions' >> /etc/skel/.bashrc
 
 
 #easybuild
-RUN useradd -ms /bin/bash easybuild_user
+RUN useradd -ms /bin/bash easybuilder
 RUN apt-get install -y python3 python3-pip
 RUN wget https://github.com/easybuilders/easybuild/archive/easybuild-v$EASYBUILDVERSION.tar.gz && tar -xvf easybuild-v$EASYBUILDVERSION.tar.gz
 RUN cd easybuild-easybuild-v$EASYBUILDVERSION && pip3 install --install-option "--prefix=$HOME/EasyBuild" .
-RUN cp -r /root/EasyBuild /home/easybuild_user && chown -R easybuild_user:easybuild_user /home/easybuild_user/EasyBuild
-USER easybuild_user
-RUN cd /home/easybuild_user/EasyBuild/bin && python3 bootstrap_eb.py $HOME/.local/EasyBuildInst
-RUN echo 'export MODULEPATH=$MODULEPATH:/home/easybuild_user/.local/EasyBuildInst/modules/all' >> $HOME/.bashrc
+RUN cp -r /root/EasyBuild /home/easybuilder && chown -R easybuilder:easybuilder /home/easybuilder/EasyBuild
+USER easybuilder
+RUN cd /home/easybuilder/EasyBuild/bin && python3 bootstrap_eb.py $HOME/.local/EasyBuildInst
+RUN echo 'export MODULEPATH=$MODULEPATH:/home/easybuilder/.local/EasyBuildInst/modules/all' >> $HOME/.bashrc
 
 
 USER root
-RUN chown easybuild_user:easybuild_user /opt/apps
+RUN chown easybuilder:easybuilder /opt/apps
 RUN apt-get install -y libssl-dev git
 
 
