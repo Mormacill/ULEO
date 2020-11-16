@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 ENV LUAINSTPATH=/usr/sbin
 ENV LUAVERSION=5.1.4.9
@@ -71,7 +71,7 @@ RUN cd openpbs-$OPENPBSVERSION && make install
 RUN /opt/pbs/libexec/pbs_postinstall
 RUN sed -i 's/PBS_START_MOM=0/PBS_START_MOM=1/g' /etc/pbs.conf
 RUN chmod 4755 /opt/pbs/sbin/pbs_iff /opt/pbs/sbin/pbs_rcp
-RUN echo '. /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
+RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
 
 #entrypoint
