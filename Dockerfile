@@ -37,7 +37,7 @@ ENV PATH=$LMODINSTPATH/lmod/$LMODVERSION/libexec:$PATH
 RUN mkdir /opt/apps
 ENV MODULEPATH=/opt/apps/modules/all
 
-RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /root/.bashrc
+RUN echo 'source /etc/bashrc_additions' >> /root/.bashrc
 RUN touch /etc/bashrc_additions
 RUN echo 'source '$LMODINSTPATH'/lmod/'$LMODVERSION'/init/bash' >> /etc/bashrc_additions
 RUN echo 'export MODULEPATH=/opt/apps/modules/all' >> /etc/bashrc_additions
@@ -71,6 +71,7 @@ RUN cd openpbs-$OPENPBSVERSION && make install
 RUN /opt/pbs/libexec/pbs_postinstall
 RUN sed -i 's/PBS_START_MOM=0/PBS_START_MOM=1/g' /etc/pbs.conf
 RUN chmod 4755 /opt/pbs/sbin/pbs_iff /opt/pbs/sbin/pbs_rcp
+RUN echo '. /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
 
 #entrypoint
