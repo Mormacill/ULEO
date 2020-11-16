@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#PBS -o pbs_out.dat
+#PBS -e pbs_err.dat
+
+#PBS -N Job-Name
+
+#PBS -l nodes=1:ppn=4
+
+cd $PBS_O_WORKDIR
+
+mpirun -np 4 simpleFoam -parallel > log
+reconstructPar
+
+rm -rf processor*
