@@ -20,6 +20,9 @@ CORES=4
 
 #-------------------------------------------------------#
 #DO NOT EDIT THIS PART!
+
+source /etc/bashrc_additions
+
 cd $PBS_O_WORKDIR
 module purge
 module add $FOAMMODULE
