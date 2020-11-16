@@ -60,8 +60,8 @@ RUN chown easybuilder:easybuilder /opt/apps
 RUN apt-get install -y libssl-dev git
 
 #openpbs
-RUN apt install -y gcc make libtool libhwloc-dev libx11-dev libxt-dev libedit-dev libical-dev ncurses-dev perl postgresql-server-dev-all postgresql-contrib python3-dev tcl-dev tk-dev swig libexpat-dev libssl-dev libxext-dev libxft-dev autoconf automake
-RUN apt install -y expat libedit2 postgresql python3 postgresql-contrib sendmail-bin sudo tcl tk libical3 postgresql-server-dev-all
+RUN apt-get install -y gcc make libtool libhwloc-dev libx11-dev libxt-dev libedit-dev libical-dev ncurses-dev perl postgresql-server-dev-all postgresql-contrib python3-dev tcl-dev tk-dev swig libexpat-dev libssl-dev libxext-dev libxft-dev autoconf automake
+RUN apt-get install -y expat libedit2 postgresql python3 postgresql-contrib sendmail-bin sudo tcl tk libical3 postgresql-server-dev-all
 USER easybuilder
 WORKDIR /home/easybuilder
 RUN wget https://github.com/openpbs/openpbs/archive/v$OPENPBSVERSION.tar.gz && tar -xvf v$OPENPBSVERSION.tar.gz
