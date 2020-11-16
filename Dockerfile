@@ -75,6 +75,9 @@ RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
 COPY ./scripts/openpbs_examplescript /etc/skel
 
+#define aliases
+RUN echo "alias 'mdlsearch=module spider $1'" >> /etc/bashrc_additions
+
 
 #entrypoint
 ENTRYPOINT /bin/bash && /etc/init.d/pbs start
