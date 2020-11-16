@@ -80,4 +80,4 @@ RUN echo "alias 'mdlsearch=module spider $1'" >> /etc/bashrc_additions
 
 
 #entrypoint
-ENTRYPOINT /bin/bash && /etc/init.d/pbs start
+ENTRYPOINT /etc/init.d/pbs start && /bin/bash
