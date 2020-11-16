@@ -73,6 +73,8 @@ RUN sed -i 's/PBS_START_MOM=0/PBS_START_MOM=1/g' /etc/pbs.conf
 RUN chmod 4755 /opt/pbs/sbin/pbs_iff /opt/pbs/sbin/pbs_rcp
 RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
+COPY ./scripts/openpbs_examplescript /etc/skel
+
 
 #entrypoint
 ENTRYPOINT /bin/bash && /etc/init.d/pbs start
