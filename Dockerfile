@@ -11,6 +11,9 @@ ENV LMODVERSION=8.4
 ENV EASYBUILDVERSION=4.3.1
 #check available Versions at https://github.com/easybuilders/easybuild/releases
 
+ENV OPENPBSVERSION=20.0.1
+#check available Versions at https://github.com/openpbs/openpbs/releases
+
 #timezone
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -56,6 +59,19 @@ USER root
 RUN chown easybuilder:easybuilder /opt/apps
 RUN apt-get install -y libssl-dev git
 
+#openpbs
+RUN apt install -y gcc make libtool libhwloc-dev libx11-dev libxt-dev libedit-dev libical-dev ncurses-dev perl postgresql-server-dev-all postgresql-contrib python3-dev tcl-dev tk-dev swig libexpat-dev libssl-dev libxext-dev libxft-dev autoconf automake
+RUN apt install -y expat libedit2 postgresql python3 postgresql-contrib sendmail-bin sudo tcl tk libical3 postgresql-server-dev-all
+USER easybuilder
+WORKDIR /home/easybuilder
+RUN wget https://github.com/openpbs/openpbs/archive/v$OPENPBSVERSION.tar.gz && tar -xvf v$OPENPBSVERSION.tar.gz
+RUN cd openpbs-$OPENPBSVERSION && ./autogen.sh && ./configure --prefix=/opt/pbs && make
+USER root
+RUN cd openpbs-$OPENPBSVERSION && make install
+RUN /opt/pbs/libexec/pbs_postinstall
+RUN sed -i 's/PBS_START_MOM=0/PBS_START_MOM=1/g' /etc/pbs.conf
+RUN chmod 4755 /opt/pbs/sbin/pbs_iff /opt/pbs/sbin/pbs_rcp
+
 
 #entrypoint
-ENTRYPOINT /bin/bash
+ENTRYPOINT /bin/bash && /etc/init.d/pbs start
