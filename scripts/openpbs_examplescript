@@ -1,20 +1,29 @@
 #!/bin/bash
 
 FOAMMODULE=OpenFOAM/8-foss-2020a
+#zu verwendende OpenFOAM-Version
+EXECUTABLE=simpleFoam
+#zu verwendender Solver
+CORES=4
 
 #PBS -o pbs_out.dat
-#PBS -e pbs_err.dat
-#PBS -N Job-Name
-#PBS -l nodes=1:ppn=4
+#Ausgabe-Log
 
+#PBS -e pbs_err.dat
+#Fehler-Log
+
+#PBS -N Job-Name
+#Job-Name, sichtbar in qstat
+
+#PBS -l nodes=1:ppn=$CORES
+#Reservierung von Ressourcen
+
+#-------------------------------------------------------#
+#DO NOT EDIT THIS PART!
 cd $PBS_O_WORKDIR
 module purge
 module add $FOAMMODULE
 source $FOAM_BASH
 
+mpirun -np $CORES $EXECUTABLE -parallel
 #-------------------------------------------------------#
-
-mpirun -np 4 simpleFoam -parallel
-reconstructPar
-
-rm -rf processor*
