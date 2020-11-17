@@ -84,4 +84,4 @@ RUN apt-get install -y ssh
 EXPOSE 22/tcp
 
 #entrypoint
-ENTRYPOINT /etc/init.d/pbs start && service ssh start && /bin/bash
+ENTRYPOINT service ssh start && /bin/bash && /etc/init.d/pbs start
