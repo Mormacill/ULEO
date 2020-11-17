@@ -10,8 +10,4 @@ max_run_res.ncpus = [u:PBS_GENERIC=4]
 
 
 #x11-forwarding
-apt-get install -y lubuntu-desktop
-echo 'X11DisplayOffset 10' >> /etc/ssh/sshd_config
-echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
-
-for Windows: Xming
+for Windows:Client Xming
