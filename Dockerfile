@@ -79,6 +79,9 @@ COPY ./scripts/openpbs_examplescript /etc/skel
 RUN echo "alias 'mdlsearch=module spider $1'" >> /etc/bashrc_additions
 RUN echo "alias 'livelog=watch -n 0.1 tail -n 50 *.log'" >> /etc/bashrc_additions
 
+#ssh
+RUN apt-get install -y ssh
+EXPOSE 22/tcp
 
 #entrypoint
-ENTRYPOINT /etc/init.d/pbs start && /bin/bash
+ENTRYPOINT /etc/init.d/pbs start && service ssh start && /bin/bash
