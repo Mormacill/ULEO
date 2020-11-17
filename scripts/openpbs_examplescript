@@ -30,5 +30,6 @@ module purge
 module add $FOAMMODULE
 source $FOAM_BASH
 
-mpirun -np $CORES $EXECUTABLE -parallel
+mpirun -np $CORES $EXECUTABLE -parallel | tee livelog.log
+rm livelog.log
 #-------------------------------------------------------#
