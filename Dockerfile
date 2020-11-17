@@ -77,6 +77,7 @@ COPY ./scripts/openpbs_examplescript /etc/skel
 
 #define aliases
 RUN echo "alias 'mdlsearch=module spider $1'" >> /etc/bashrc_additions
+RUN echo "alias 'livelog=watch -n 0.1 tail -n 50 *.log'" >> /etc/bashrc_additions
 
 
 #entrypoint
