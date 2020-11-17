@@ -82,6 +82,9 @@ RUN echo "alias 'livelog=watch -n 0.1 tail -n 50 *.log'" >> /etc/bashrc_addition
 #ssh
 RUN apt-get install -y ssh
 EXPOSE 22/tcp
+#x11-ssh
+RUN echo 'X11DisplayOffset 10' >> /etc/ssh/sshd_config
+RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
 #entrypoint
 COPY ./scripts/entrypoint.sh /entrypoint.sh
