@@ -4,7 +4,7 @@
 service ssh start 
 
 #start jobmanager openPBS
-/etc/init.d/pbs start
+service pbs start
 
 #start bash
-/bin/bash 
+/bin/bash
