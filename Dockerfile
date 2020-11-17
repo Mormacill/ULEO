@@ -87,6 +87,7 @@ RUN echo 'X11DisplayOffset 10' >> /etc/ssh/sshd_config
 RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
 #entrypoint
-COPY ./scripts/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT /entrypoint.sh
+WORKDIR /
+COPY scripts/entrypoint.sh /entrypoint.sh
+RUN chmod +x entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
