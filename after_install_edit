@@ -1,0 +1,9 @@
+#to /var/spool/pbs/mom_priv/config
+
+$enforce cpuaverage
+$enforce average_percent_over 50
+$enforce average_cpufactor 1.025
+$enforce average_trialperiod 60
+
+#set in qmgr
+max_run_res.ncpus = [u:PBS_GENERIC=4]
