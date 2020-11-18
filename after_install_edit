@@ -11,3 +11,7 @@ max_run_res.ncpus = [u:PBS_GENERIC=4]
 
 #x11-forwarding
 for Windows:Client Xming
+
+#Install Modules
+Openfoam 8
+Octave 5.1
