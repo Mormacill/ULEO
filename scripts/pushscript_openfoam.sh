@@ -50,7 +50,7 @@ cat >> $JS << EOF
 #
 #=================================================================================
 
-#PBS parameter
+#pbs-parameter
 
 #Ausgabe-Log
 #PBS -o $jobLogFile
@@ -71,7 +71,7 @@ cat >> $JS << EOF
 source /etc/bashrc_additions
 
 #enter pbs workdir
-cd $PBS_O_WORKDIR
+cd \$PBS_O_WORKDIR
 
 # Load the module files
 module purge
