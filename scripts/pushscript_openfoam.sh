@@ -90,6 +90,7 @@ EOF
 
 chmod 700 $JS
 
+#submit jobsscript
 qsub $JS | cut -d. -f1 | echo "Job $4 submitted with ID $(cat)"
 rm $JS
 
