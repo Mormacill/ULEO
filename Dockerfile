@@ -73,7 +73,7 @@ RUN sed -i 's/PBS_START_MOM=0/PBS_START_MOM=1/g' /etc/pbs.conf
 RUN chmod 4755 /opt/pbs/sbin/pbs_iff /opt/pbs/sbin/pbs_rcp
 RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
-COPY ./scripts/openpbs_examplescript /etc/skel
+COPY ./scripts/pushscript_openfoam.sh /etc/skel
 
 #define aliases
 RUN echo "alias 'mdlsearch=module spider \$1'" >> /etc/bashrc_additions
