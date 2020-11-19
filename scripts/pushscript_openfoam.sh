@@ -2,8 +2,10 @@
 FV="v2006-foss-2020a 8-foss-2020a"
 if [ $# -lt 4 ] || [ $# -gt 4 ]; then
 cat <<EOF
+
 usage: $0 executable cores version jobname
 - version is OpenFoam version: ($FV)
+
 EOF
 exit 1
 fi
