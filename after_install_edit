@@ -22,3 +22,5 @@ default text editor medit
 #etherpad
 plugins adminpads2, mammoth
 -p X:9001 -e 'ADMIN_PASSWORD=XXX' etherpad/etherpad
+
+wiki
