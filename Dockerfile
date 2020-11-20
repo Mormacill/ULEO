@@ -74,6 +74,7 @@ RUN chmod 4755 /opt/pbs/sbin/pbs_iff /opt/pbs/sbin/pbs_rcp
 RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
 COPY ./scripts/pushscript_openfoam.sh /etc/skel
+RUN chmod +x /etc/skel/pushscript_openfoam.sh
 
 #define aliases
 RUN echo "alias 'mdlsearch=module spider \$1'" >> /etc/bashrc_additions
