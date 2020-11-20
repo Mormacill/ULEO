@@ -89,6 +89,6 @@ RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
 #entrypoint
 WORKDIR /
-COPY scripts/entrypoint.sh /entrypoint.sh
+COPY ./scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
