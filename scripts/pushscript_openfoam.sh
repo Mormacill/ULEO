@@ -33,7 +33,7 @@ case $appVersion in
         fBash="\$FOAM_BASH"
         ;;
     *)
-        cat <<EOF
+        cat << EOF
 Wrong OpenFoam version ($appVersion) given.
 Allowed versions are: $FV
 EOF
@@ -52,18 +52,18 @@ cat >> $JS << EOF
 #
 #=================================================================================
 
-#pbs-parameter
+#pbs-parameters
 
-#Ausgabe-Log
+#output-Log
 #PBS -o $jobLogFile
 
-#Fehler-Log
+#error-Log
 #PBS -e $jobErrFile
 
-#Job-Name, sichtbar in qstat
+#jobname, visible in qstat
 #PBS -N $jobName
 
-#Reservierung von Ressourcen
+#ressource allocating
 #PBS -l nodes=1:ppn=$nprocs
 
 #=================================================================================
@@ -75,13 +75,13 @@ source /etc/bashrc_additions
 #enter pbs workdir
 cd \$PBS_O_WORKDIR
 
-# Load the module files
+#load module files
 module purge
 module add $ofVer
 
 source $fBash
 
-#Start application
+#start application
 mpirun -np $nprocs $execfile -parallel | tee livelog.log
 
 rm livelog.log
