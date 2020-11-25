@@ -7,7 +7,8 @@ $enforce average_trialperiod 60
 
 #set in qmgr
 max_run_res.ncpus = [u:PBS_GENERIC=4]
-
+set server resources_default.walltime = 00:00:10 //force walltime given
+set queue workq resources_max.walltime = 72:00:00
 
 #x11-forwarding
 for Windows:Client Xming
