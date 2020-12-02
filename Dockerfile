@@ -123,6 +123,8 @@ RUN unzip xfce4.zip
 RUN rm xfce4.zip
 
 EXPOSE 3389
+#***XRDP/******************************************************************************
+
 
 #entrypoint
 WORKDIR /
