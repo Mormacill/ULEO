@@ -88,6 +88,42 @@ EXPOSE 22/tcp
 RUN echo 'X11DisplayOffset 10' >> /etc/ssh/sshd_config
 RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
+#***XRDP******************************************************************************
+RUN apt-get install -y net-tools apt-utils software-properties-common
+#locales
+ENV LANGUAGE=en_US.UTF-8
+
+RUN apt-get install -y locales
+RUN echo '${LANGUAGE} UTF-8' >> /etc/locale.gen
+RUN locale-gen ${LANGUAGE}
+ENV LANG=${LANGUAGE}
+ENV LC_ALL=${LANGUAGE}
+
+#install desktop
+RUN apt-get install -y xfce4 dbus-x11 xrdp
+RUN echo 'xfce4-session' > /etc/skel/.xsession
+
+#setting terminal
+RUN apt-get purge -y gnome-terminal xterm && apt-get install -y tilix
+#remove unnecessary software
+RUN apt-get purge -y pulseaudio pavucontrol
+#install necessary software
+RUN apt-get install -y gedit firefox
+
+#disable suspend/hibernate-Buttons
+RUN echo "xfconf-query -c xfce4-session -np '/shutdown/ShowSuspend' -t 'bool' -s 'false'" >> /etc/bashrc_additions
+RUN echo "xfconf-query -c xfce4-session -np '/shutdown/ShowHibernate' -t 'bool' -s 'false'" >> /etc/bashrc_additions
+
+#disable action menu
+WORKDIR /etc/skel
+RUN mkdir .config
+WORKDIR /etc/skel/.config
+COPY scripts/xfce4.zip .
+RUN unzip xfce4.zip
+RUN rm xfce4.zip
+
+EXPOSE 3389
+
 #entrypoint
 WORKDIR /
 COPY ./scripts/entrypoint.sh /entrypoint.sh
