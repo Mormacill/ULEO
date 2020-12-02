@@ -106,7 +106,7 @@ RUN echo 'xfce4-session' > /etc/skel/.xsession
 #setting terminal
 RUN apt-get purge -y gnome-terminal xterm && apt-get install -y tilix
 #remove unnecessary software
-RUN apt-get purge -y pulseaudio pavucontrol
+RUN apt-get purge -y pulseaudio pavucontrol xscreensaver
 #install necessary software
 RUN apt-get install -y gedit firefox
 
