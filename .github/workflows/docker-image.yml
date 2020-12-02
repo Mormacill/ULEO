@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ xrdp-support ]
   pull_request:
-    branches: [ main ]
+    branches: [ xrdp-support ]
 
 jobs:
 
