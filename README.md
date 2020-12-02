@@ -8,7 +8,7 @@ This Image is based on Ubuntu 18.04.
 
 To build this Dockerfile just type
 
-`docker build -t uleo:18.04 .`
+`docker build -t uleo-x:18.04 .`
 
 inside the Folder conaining the Dockerfile. Check if the "scripts" folder is also present.
 In the Dockerfile it is possible to change the versions of lua, lmod, easybuild and openPBS if you wish a different release to be installed.
@@ -17,7 +17,7 @@ In the Dockerfile it is possible to change the versions of lua, lmod, easybuild 
 
 To run this Containerbuild just type
 
-`docker run -itd -p {PortForSSHOnHost}:22/tcp --name uleo --hostname uleo uleo:18.04`
+`docker run -itd -p {PortForSSHOnHost}:22/tcp -p 3389:3389 --name uleo-x --hostname uleo-x uleo-x:18.04`
 
 The entrypoint script will start the openPBS-service and ssh daemon.
 
@@ -27,7 +27,7 @@ For building modules there is already an existing user called *easybuilder* with
 **Notice: Before you make your first connect via ssh to *easybuilder* be sure to set a user account password!**
 Do this by executing a bash inside the cotainer by
 
-`docker exec -it uleo bash`
+`docker exec -it uleo-x bash`
 
 Now you´re insde the container as root user. 
 Assign a password by 
