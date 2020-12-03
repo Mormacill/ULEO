@@ -29,10 +29,12 @@ Do this by executing a bash inside the cotainer by
 
 `docker exec -it uleo-x bash`
 
-Now you´re insde the container as root user. 
+Now you´re inside the container as root user. 
 Assign a password by 
 
 `passwd easybuilder`
 
 Leave the shell and you can connect with your prefered ssh client to connect to easybuilder with your assigned password.
 Due to x11 forwarding is enabled at the ssh daemon you can connect with x11 fowarding to the user to edit some files with e.g. medit.
+
+It is also possible to access user accounts via remote desktop. For Windows use Remote Desktop, Linux users can join via Remmina client.
