@@ -128,6 +128,6 @@ EXPOSE 3389
 
 #entrypoint
 WORKDIR /
-COPY ./scripts/entrypoint.sh /entrypoint.sh
+COPY scripts/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
