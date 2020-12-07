@@ -11,8 +11,12 @@ set server resources_default.walltime = 00:00:10 //force walltime given
 set queue workq resources_max.walltime = 72:00:00
 
 #x11-forwarding
-for Windows: Client Xming
+for Windows: Xming client
 for Linux: included
+
+#xrdp
+for Windows: remote desktop client
+for Linux: Remmina
 
 #Install Modules
 Openfoam 8
