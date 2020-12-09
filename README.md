@@ -25,7 +25,7 @@ The entrypoint script will start the openPBS-service and ssh daemon.
 
 For building modules there is already an existing user called *easybuilder* with assigned rights.
 **Notice: Before you make your first connect via ssh to *easybuilder* be sure to set a user account password!**
-Do this by executing a bash inside the cotainer by
+Do this by executing a bash inside the container by
 
 `docker exec -it uleo-x bash`
 
