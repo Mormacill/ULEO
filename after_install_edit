@@ -23,7 +23,9 @@ Openfoam 8
 Openfoam v2006
 Octave 5.1
 
-default text editor medit
+salome
+
+(default text editor gedit, additional medit)
 
 #etherpad
 plugins adminpads2, mammoth
