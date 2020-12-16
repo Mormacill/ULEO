@@ -10,7 +10,7 @@ To build this Dockerfile just type
 
 `docker build -t uleo-x:18.04 .`
 
-inside the Folder conaining the Dockerfile. Check if the "scripts" folder is also present.
+inside the folder containing the Dockerfile. Check if the "scripts" folder is also present.
 In the Dockerfile it is possible to change the versions of lua, lmod, easybuild and openPBS if you wish a different release to be installed.
 
 ## start the container
