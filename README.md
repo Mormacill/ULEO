@@ -41,4 +41,4 @@ It is also possible to access user accounts via remote desktop. For Windows use 
 
 Network organizational chart:
 
-![alt text](https://store.hs-owl.de/filr/public-link/file-download/412ef670763ea15901766ab692621f39/19715/-840963185170409716/NetzwerkplanSimulationsserver.png)
+![netplan](https://github.com/Mormacill/_webinclude/blob/main/NetzwerkplanSimulationsserver.png)
