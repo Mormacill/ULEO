@@ -38,3 +38,7 @@ Leave the shell and you can connect with your prefered ssh client to connect to 
 Due to x11 forwarding is enabled at the ssh daemon you can connect with x11 fowarding to the user to edit some files with e.g. medit.
 
 It is also possible to access user accounts via remote desktop. For Windows use Remote Desktop, Linux users can join via Remmina client.
+
+Network organizational chart:
+
+![alt text](https://store.hs-owl.de/filr/public-link/file-download/412ef670763ea15901766ab692621f39/19715/-840963185170409716/NetzwerkplanSimulationsserver.png)
