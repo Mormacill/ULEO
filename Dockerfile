@@ -108,7 +108,7 @@ RUN apt-get purge -y gnome-terminal xterm && apt-get install -y tilix
 #remove unnecessary software
 RUN apt-get purge -y pulseaudio pavucontrol xscreensaver
 #install necessary software
-RUN apt-get install -y gedit firefox
+RUN apt-get install -y gedit firefox gnome-calculator
 
 #disable suspend/hibernate-Buttons
 RUN echo "xfconf-query -c xfce4-session -np '/shutdown/ShowSuspend' -t 'bool' -s 'false'" >> /etc/bashrc_additions
