@@ -21,14 +21,14 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y apt-utils wget nano sudo build-essential zip rsync
 
-#lua
+#***<lua>******************************************************************************
 WORKDIR /root
 RUN wget https://downloads.sourceforge.net/project/lmod/lua-$LUAVERSION.tar.bz2
 RUN tar -xvf lua-$LUAVERSION.tar.bz2
 RUN cd lua-$LUAVERSION && ./configure --with-static=yes --prefix=$LUAINSTPATH/lua && make && make install
 ENV PATH=$LUAINSTPATH/lua/bin:$PATH
 
-#lmod
+#***<lmod>******************************************************************************
 RUN wget https://sourceforge.net/projects/lmod/files/Lmod-$LMODVERSION.tar.bz2 
 RUN tar -xvf Lmod-$LMODVERSION.tar.bz2
 RUN apt-get install -y tcl-dev
@@ -44,7 +44,7 @@ RUN echo 'export MODULEPATH=/opt/apps/modules/all' >> /etc/bashrc_additions
 RUN echo 'source /etc/bashrc_additions' >> /etc/skel/.bashrc
 
 
-#easybuild
+#***<easybuild>******************************************************************************
 RUN useradd -ms /bin/bash easybuilder
 RUN apt-get install -y python3 python3-pip
 RUN wget https://github.com/easybuilders/easybuild/archive/easybuild-v$EASYBUILDVERSION.tar.gz && tar -xvf easybuild-v$EASYBUILDVERSION.tar.gz
@@ -59,7 +59,7 @@ USER root
 RUN chown easybuilder:easybuilder /opt/apps
 RUN apt-get install -y libssl-dev git
 
-#openpbs
+#***<openpbs>******************************************************************************
 RUN apt-get install -y gcc make libtool libhwloc-dev libx11-dev libxt-dev libedit-dev libical-dev ncurses-dev perl postgresql-server-dev-all postgresql-contrib python3-dev tcl-dev tk-dev swig libexpat-dev libssl-dev libxext-dev libxft-dev autoconf automake
 RUN apt-get install -y expat libedit2 postgresql python3 postgresql-contrib sendmail-bin sudo tcl tk libical3 postgresql-server-dev-all
 USER easybuilder
@@ -76,6 +76,7 @@ RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 COPY scripts/pushscript_openfoam.sh /etc/skel
 RUN chmod +x /etc/skel/pushscript_openfoam.sh
 
+#***<misc>******************************************************************************
 #define aliases
 RUN echo "alias 'mdlsearch=module spider \$1'" >> /etc/bashrc_additions
 RUN echo "alias 'livelog=watch -n 0.1 tail -n 50 *.log'" >> /etc/bashrc_additions
@@ -88,7 +89,7 @@ EXPOSE 22/tcp
 RUN echo 'X11DisplayOffset 10' >> /etc/ssh/sshd_config
 RUN echo 'X11UseLocalhost no' >> /etc/ssh/sshd_config
 
-#***XRDP******************************************************************************
+#***<XRDP>******************************************************************************
 RUN apt-get install -y net-tools apt-utils software-properties-common
 #locales
 ENV LANGUAGE=en_US.UTF-8
@@ -123,8 +124,7 @@ RUN unzip xfce4.zip
 RUN rm xfce4.zip
 
 EXPOSE 3389
-#***XRDP/******************************************************************************
-
+#***<///>*****************************************************************************
 
 #entrypoint
 WORKDIR /
