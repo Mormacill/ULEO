@@ -1,4 +1,4 @@
-# Uleo-x: Ubuntu-Lmod-Easybuild-OpenPBS--Xrdp
+# Uleo-X: Ubuntu-Lmod-Easybuild-OpenPBS--Xrdp
 ## A scientific simulation environment for single machines with lmod environment modules, OpenPBS job manager and xfce4-desktop with Xrdp
 
 This Dockerfile contains a lmod environment system based on lua, also easybuild is included. On top there is an OpenPBS job manager.
