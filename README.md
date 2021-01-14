@@ -13,7 +13,7 @@ To build this Dockerfile just type
 inside the folder containing the Dockerfile. Check if the "scripts" folder is also present.
 In the Dockerfile it is possible to change the versions of lua, lmod, easybuild and openPBS if you wish a different release to be installed.
 
-## start the container
+## Start the container
 
 To run this Containerbuild just type
 
@@ -21,7 +21,7 @@ To run this Containerbuild just type
 
 The entrypoint script will start the openPBS-service and ssh daemon.
 
-## usage
+## Usage
 
 For building modules there is already an existing user called *easybuilder* with assigned rights.
 **Notice: Before you make your first connect via ssh to *easybuilder* be sure to set a user account password!**
