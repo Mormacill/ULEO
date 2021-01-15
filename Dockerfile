@@ -115,13 +115,16 @@ RUN apt-get install -y gedit firefox gnome-calculator
 RUN echo "xfconf-query -c xfce4-session -np '/shutdown/ShowSuspend' -t 'bool' -s 'false'" >> /etc/bashrc_additions
 RUN echo "xfconf-query -c xfce4-session -np '/shutdown/ShowHibernate' -t 'bool' -s 'false'" >> /etc/bashrc_additions
 
-#disable action menu
+#disable action menu and add preconfigured desktop
 WORKDIR /etc/skel
 RUN mkdir .config
 WORKDIR /etc/skel/.config
 COPY scripts/xfce4.zip .
 RUN unzip xfce4.zip
 RUN rm xfce4.zip
+
+#make thinclient-folder unvisible for user
+RUN sed -i 's/FuseMountName=thinclient_drives/FuseMountName=.thinclient_drives/g' /etc/xrdp/sesman.ini
 
 EXPOSE 3389
 #***<///>*****************************************************************************
