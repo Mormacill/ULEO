@@ -6,9 +6,9 @@ $enforce average_cpufactor 1.025
 $enforce average_trialperiod 60
 
 #set in qmgr
-max_run_res.ncpus = [u:PBS_GENERIC=4]
+max_run_res.ncpus = [u:PBS_GENERIC=20]
 set server resources_default.walltime = 00:00:10 //force walltime given
-set queue workq resources_max.walltime = 72:00:00
+set queue workq resources_max.walltime = 240:00:00 //10 days
 
 #x11-forwarding
 for Windows: Xming client
@@ -19,7 +19,7 @@ for Windows: remote desktop client
 for Linux: Remmina
 
 #Install Modules
-Openfoam 8
+Openfoam 8        configopts += " -Dgallium-drivers=swrast" for Mesa build
 Openfoam v2006
 Octave 5.1
 
