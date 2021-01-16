@@ -124,7 +124,7 @@ RUN unzip xfce4.zip
 RUN rm xfce4.zip
 
 #make thinclient-folder unvisible for user
-RUN sed -i 's/FuseMountName=thinclient_drives/FuseMountName=.thinclient_drives/g' /etc/xrdp/sesman.ini
+RUN sed -i 's#FuseMountName=thinclient_drives#FuseMountName=Public/thinclient_drives#g' /etc/xrdp/sesman.ini
 
 EXPOSE 3389
 #***<///>*****************************************************************************
