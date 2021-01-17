@@ -19,7 +19,7 @@ for Windows: remote desktop client
 for Linux: Remmina
 
 #Install Modules
-Openfoam 8        configopts += " -Dgallium-drivers=swrast" for Mesa build
+Openfoam 8        configopts += " -Dgallium-drivers=swrast" for Mesa build; toolchainopts = {'cstd': 'c++11', 'i8': 'true'} for OpenFOAM
 Openfoam v2006
 Octave 5.1
 
