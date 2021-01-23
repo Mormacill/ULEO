@@ -10,11 +10,11 @@ max_run_res.ncpus = [u:PBS_GENERIC=20]
 set server resources_default.walltime = 00:00:10 //force walltime given
 set queue workq resources_max.walltime = 240:00:00 //10 days
 
-#x11-forwarding
+#x11-forwarding               LAN-1
 for Windows: Xming client
 for Linux: included
 
-#xrdp
+#xrdp                         LAN-2
 for Windows: remote desktop client
 for Linux: Remmina
 
@@ -25,7 +25,7 @@ Octave 5.1
 
 salome
 
-virt-manager
+virt-manager                  LAN-3
 
 (default text editor gedit, additional medit)
 
