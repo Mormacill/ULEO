@@ -13,6 +13,8 @@ rm /var/run/xrdp/xrdp.pid & sleep 2
 service dbus start
 service xrdp start
 
+#start samba-daemon
+service smbd start
 
 #start bash
 /bin/bash
