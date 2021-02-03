@@ -3,7 +3,7 @@
 #Lmod
 module --help || exit 1
 
-EasyBuild
+#EasyBuild
 export MODULEPATH=$MODULEPATH:/home/easybuilder/.local/EasyBuildInst/modules/all && module add EasyBuild && eb --help || exit 1
 
 #OpenPBS
