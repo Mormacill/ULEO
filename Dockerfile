@@ -144,7 +144,7 @@ RUN mkdir /scratch
 WORKDIR /
 COPY scripts/healthcheck.sh .
 RUN chmod +x healthcheck.sh
-HEALTHCHECK --interval=1m --timeout=20s ["/healthcheck.sh"]
+HEALTHCHECK --interval=1m --timeout=20s CMD ["/healthcheck.sh"]
 
 #entrypoint
 COPY scripts/entrypoint.sh .
