@@ -140,9 +140,13 @@ RUN mkdir /scratch
 
 #***<///>*****************************************************************************
 
+#healthcheck
+WORKDIR /
+COPY scripts/healthcheck.sh .
+RUN chmod +x healthcheck.sh
+HEALTHCHECK --interval=1m --timeout=20s ["/healthcheck.sh"]
 
 #entrypoint
-WORKDIR /
 COPY scripts/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
