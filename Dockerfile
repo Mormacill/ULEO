@@ -127,7 +127,19 @@ RUN rm xfce4.zip
 RUN sed -i 's#FuseMountName=thinclient_drives#FuseMountName=Public/thinclient_drives#g' /etc/xrdp/sesman.ini
 
 EXPOSE 3389
+
+#***<samba>*****************************************************************************
+#samba server
+RUN apt-get install -y samba
+
+EXPOSE 445
+EXPOSE 139
+
+#samba root path
+RUN mkdir /scratch 
+
 #***<///>*****************************************************************************
+
 
 #entrypoint
 WORKDIR /

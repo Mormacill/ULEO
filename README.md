@@ -17,7 +17,7 @@ In the Dockerfile it is possible to change the versions of lua, lmod, easybuild 
 
 To run this Containerbuild just type
 
-`docker run -itd -p {PortForSSHOnHost}:22/tcp -p 3389:3389 --privileged --name uleo-x --hostname uleo-x uleo-x:18.04`
+`docker run -itd -p {PortForSSHOnHost}:22/tcp -p 3389:3389 -p 445:445 -p 139:139 -v {SpeicherpfadHost}:{SpeicherPfadContainer} --privileged --name uleo-x --hostname uleo-x uleo-x:18.04`
 
 The entrypoint script will start the openPBS-service and ssh daemon.
 
