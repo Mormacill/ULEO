@@ -8,7 +8,7 @@ function TestLmod {
   fi
 }
 function TestEasyBuild {
-  echo "test build" && export MODULEPATH=$MODULEPATH:/home/easybuilder/.local/EasyBuildInst/modules/all && module add EasyBuild && eb --help &> /dev/null
+  echo "test easybuild" && export MODULEPATH=$MODULEPATH:/home/easybuilder/.local/EasyBuildInst/modules/all && module add EasyBuild && eb --help &> /dev/null
   if [ $? -ne 0 ]; then
           exit 1
   fi
