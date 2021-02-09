@@ -21,6 +21,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install -y apt-utils wget nano sudo build-essential zip rsync
 
+#change first IDs
+RUN sed -i 's/FIRST_UID=1000/FIRST_UID=2000/g' /etc/adduser.conf
+RUN sed -i 's/FIRST_GID=1000/FIRST_GID=2000/g' /etc/adduser.conf
+
 #***<lua>******************************************************************************
 WORKDIR /root
 RUN wget https://downloads.sourceforge.net/project/lmod/lua-$LUAVERSION.tar.bz2
