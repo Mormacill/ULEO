@@ -10,6 +10,9 @@ max_run_res.ncpus = [u:PBS_GENERIC=20]
 set server resources_default.walltime = 00:00:10 //force walltime given
 set queue workq resources_max.walltime = 240:00:00 //10 days
 
+#enable backfilling for time estimation
+https://www.altair.de/pdfs/pbsworks/PBSAdminGuide2020.1.pdf#G7.1241445
+
 #x11-forwarding               LAN-1
 for Windows: Xming client
 for Linux: included
