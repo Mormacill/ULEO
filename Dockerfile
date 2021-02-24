@@ -107,6 +107,7 @@ ENV LC_ALL=${LANGUAGE}
 #install desktop
 RUN apt-get install -y xfce4 dbus-x11 xrdp
 RUN echo 'xfce4-session' > /etc/skel/.xsession
+RUN echo 'xfce4-session' > /home/easybuilder/.xsession && chown easybuilder:easybuilder /home/easybuilder/.xsession
 
 #setting terminal
 RUN apt-get purge -y gnome-terminal xterm && apt-get install -y tilix
