@@ -49,7 +49,7 @@ RUN echo 'source /etc/bashrc_additions' >> /etc/skel/.bashrc
 
 
 #***<easybuild>******************************************************************************
-RUN useradd -ms /bin/bash easybuilder
+RUN useradd -ms /bin/bash -u 1999 easybuilder
 RUN apt-get install -y python3 python3-pip
 RUN wget https://github.com/easybuilders/easybuild/archive/easybuild-v$EASYBUILDVERSION.tar.gz && tar -xvf easybuild-v$EASYBUILDVERSION.tar.gz
 RUN cd easybuild-easybuild-v$EASYBUILDVERSION && pip3 install --install-option "--prefix=$HOME/EasyBuild" .
@@ -107,6 +107,7 @@ ENV LC_ALL=${LANGUAGE}
 #install desktop
 RUN apt-get install -y xfce4 dbus-x11 xrdp
 RUN echo 'xfce4-session' > /etc/skel/.xsession
+RUN echo 'xfce4-session' > /home/easybuilder/.xsession && chown easybuilder:easybuilder /home/easybuilder/.xsession
 
 #setting terminal
 RUN apt-get purge -y gnome-terminal xterm && apt-get install -y tilix

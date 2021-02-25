@@ -1,7 +1,7 @@
 # Uleo-X: Ubuntu-Lmod-Easybuild-OpenPBS--Xrdp
 ## A scientific simulation environment for single machines with lmod environment modules, OpenPBS job manager and xfce4-desktop with Xrdp
 
-This Dockerfile contains a lmod environment system based on lua, also easybuild is included. On top there is an OpenPBS job manager.
+This Dockerfile contains a lmod environment system based on lua, also easybuild is configured. On top there is an OpenPBS job manager.
 This Image is based on Ubuntu 18.04.
 
 ## Build the container
@@ -10,7 +10,7 @@ To build this Dockerfile just type
 
 `docker build -t uleo-x:18.04 .`
 
-inside the folder containing the Dockerfile. Check if the "scripts" folder is also present.
+inside the Dockerfile containing directory. Check if the "scripts" folder is also present.
 In the Dockerfile it is possible to change the versions of lua, lmod, easybuild and openPBS if you wish a different release to be installed.
 
 ## Start the container
@@ -19,7 +19,7 @@ To run this Containerbuild just type
 
 `docker run -itd -p {PortForSSHOnHost}:22/tcp -p 3389:3389 -p 445:445 -p 139:139 -v {SpeicherpfadHost}:/scratch --privileged --name uleo-x --hostname uleo-x uleo-x:18.04`
 
-The entrypoint script will start the openPBS-service and ssh daemon.
+The entrypoint script will start the OpenPBS-service and ssh daemon.
 
 ## Usage
 
