@@ -15,7 +15,7 @@
 #PBS -l walltime=01:00:00
 #Reservierung von Walltime
 
-FOAMMODULE=OpenFOAM/8-foss-2020a
+FOAMMODULE=OpenFOAM/8-foss-2020b
 #zu verwendende OpenFOAM-Version
 EXECUTABLE=simpleFoam
 #zu verwendender Solver
