@@ -143,11 +143,11 @@ EXPOSE 139
 #samba root path
 RUN mkdir /scratch
 
-RUN mkdir /home/easybuilder/samba_scripts
-WORKDIR /home/easybuilder/samba_scripts/
-COPY /scripts/samba/smb_useradd.sh .
-COPY /scripts/samba/smb_userdel.sh .
-RUN chmod +x smb_useradd.sh smb_userdel.sh
+RUN mkdir /home/easybuilder/sys-samba_scripts
+WORKDIR /home/easybuilder/sys-samba_scripts/
+COPY /scripts/samba/system_user-smb_useradd.sh .
+COPY /scripts/samba/system_user-smb_userdel.sh .
+RUN chmod +x system_user-smb_useradd.sh system_user-smb_userdel.sh
 
 #***<///>*****************************************************************************
 
