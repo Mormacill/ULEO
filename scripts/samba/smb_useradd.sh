@@ -10,7 +10,7 @@ fi
 
   USERN=$1                #Name of user to add
 
-sudo adduser $USERN
+sudo adduser --force-badname $USERN
 sudo smbpasswd -a $USERN
 sudo mkdir /scratch/$USERN
 sudo chown $USERN:$USERN /scratch/$USERN
