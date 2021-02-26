@@ -12,7 +12,10 @@
 #PBS -l nodes=1:ppn=4
 #Reservierung von Ressourcen
 
-FOAMMODULE=OpenFOAM/8-foss-2020a
+#PBS -l walltime=01:00:00
+#Reservierung von Walltime
+
+FOAMMODULE=OpenFOAM/8-foss-2020b
 #zu verwendende OpenFOAM-Version
 EXECUTABLE=simpleFoam
 #zu verwendender Solver
