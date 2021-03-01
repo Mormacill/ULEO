@@ -84,7 +84,7 @@ RUN chmod +x /etc/skel/pushscript_openfoam.sh
 #define aliases
 RUN echo "alias 'mdlsearch=module spider \$1'" >> /etc/bashrc_additions
 RUN echo "alias 'livelog=watch -n 0.1 tail -n 50 *.log'" >> /etc/bashrc_additions
-RUN echo "alias 'fm=foamMonitor -l -r 1 -i 180 postProcessing/residuals/*.dat'" >> /etc/bashrc_additions
+RUN echo "alias 'fm=foamMonitor -l -r 1 -i 180 postProcessing/residuals/0/*.dat'" >> /etc/bashrc_additions
 
 #ssh
 RUN apt-get install -y ssh
