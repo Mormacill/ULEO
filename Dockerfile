@@ -54,6 +54,7 @@ RUN apt-get install -y python3 python3-pip
 RUN wget https://github.com/easybuilders/easybuild/archive/easybuild-v$EASYBUILDVERSION.tar.gz && tar -xvf easybuild-v$EASYBUILDVERSION.tar.gz
 RUN cd easybuild-easybuild-v$EASYBUILDVERSION && pip3 install --install-option "--prefix=$HOME/EasyBuild" .
 RUN cp -r /root/EasyBuild /home/easybuilder && chown -R easybuilder:easybuilder /home/easybuilder/EasyBuild
+WORKDIR /home/easybuilder
 USER easybuilder
 RUN cd /home/easybuilder/EasyBuild/bin && python3 bootstrap_eb.py $HOME/.local/EasyBuildInst
 RUN echo 'export MODULEPATH=$MODULEPATH:/home/easybuilder/.local/EasyBuildInst/modules/all' >> $HOME/.bashrc
