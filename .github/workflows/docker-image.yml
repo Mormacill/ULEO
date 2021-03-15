@@ -30,12 +30,10 @@ jobs:
       run: docker --version
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag uleo-x:18.04
+      run: docker build . -f Dockerfile -t uleo-x:18.04
     
-    - name: Run test Docker image
+    - name: Run test container and healthcheck
       run: |
            docker run -itd uleo-x:18.04
            sleep 180
-    
-    - name: Docker healthcheck
-      run: docker ps -a
+           docker ps -a
