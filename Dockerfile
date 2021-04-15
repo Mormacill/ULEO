@@ -8,7 +8,7 @@ ENV LMODINSTPATH=$LUAINSTPATH
 ENV LMODVERSION=8.4
 #check available Versions at https://sourceforge.net/projects/lmod/files/Lmod
 
-ENV EASYBUILDVERSION=4.3.3
+ENV EASYBUILDVERSION=4.3.4
 #check available Versions at https://github.com/easybuilders/easybuild/releases
 
 ENV OPENPBSVERSION=20.0.1
