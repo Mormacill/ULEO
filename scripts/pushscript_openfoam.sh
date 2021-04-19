@@ -87,6 +87,13 @@ module add $ofVer
 
 source $fBash
 
+#--------------------------------------------------------------------------------#
+#ADD OWN PRE-CODE HERE IF NECESSARY
+
+
+#--------------------------------------------------------------------------------#
+
+
 #start application
 mpirun -np $nprocs $execfile -parallel | tee livelog.log
 
