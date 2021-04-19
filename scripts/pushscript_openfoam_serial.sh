@@ -6,7 +6,7 @@ cat <<EOF
 usage: $0 executable version jobname walltime
 - version is OpenFoam version: ($FV)
 example:
-./pushscript_openfoam.sh simpleFoam 20 8-foss-2020b myjob 01:00:00
+./pushscript_openfoam.sh simpleFoam 8-foss-2020b myjob 01:00:00
 
 EOF
 exit 1
