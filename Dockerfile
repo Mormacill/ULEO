@@ -80,6 +80,8 @@ RUN echo 'source /etc/profile.d/pbs.sh' >> /etc/bashrc_additions
 
 COPY scripts/pushscript_openfoam.sh /etc/skel
 RUN chmod +x /etc/skel/pushscript_openfoam.sh
+COPY scripts/pushscript_openfoam_serial.sh /etc/skel
+RUN chmod +x /etc/skel/pushscript_openfoam_serial.sh
 
 #***<misc>******************************************************************************
 #define aliases

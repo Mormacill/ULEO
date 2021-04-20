@@ -1,22 +1,21 @@
 #!/bin/bash
 FV="v2012-foss-2020a 8-foss-2020b"
-if [ $# -lt 5 ] || [ $# -gt 5 ]; then
+if [ $# -lt 4 ] || [ $# -gt 4 ]; then
 cat <<EOF
 
-usage: $0 executable cores version jobname walltime
+usage: $0 executable version jobname walltime
 - version is OpenFoam version: ($FV)
 example:
-./pushscript_openfoam.sh simpleFoam 20 8-foss-2020b myjob 01:00:00
+./pushscript_openfoam.sh simpleFoam 8-foss-2020b myjob 01:00:00
 
 EOF
 exit 1
 fi
 
   execfile=$1                #the job
-    nprocs=$2                #number of CPUs to run on
-appVersion=$3                #version of OpenFOAM used
-   jobName=$4                #the jobname
-     wallt=$5                #walltime
+appVersion=$2                #version of OpenFOAM used
+   jobName=$3                #the jobname
+     wallt=$4                #walltime
 
 jobLogFile=$jobName.log            #the job log file
 jobErrFile=$jobName.err            #the job error file
@@ -67,7 +66,7 @@ cat >> $JS << EOF
 #PBS -N $jobName
 
 #ressource allocating
-#PBS -l nodes=1:ppn=$nprocs
+#PBS -l nodes=1:ppn=1
 
 #allocating walltime
 #PBS -l walltime=$wallt
@@ -95,7 +94,7 @@ source $fBash
 
 
 #start application
-mpirun -np $nprocs $execfile -parallel | tee livelog.log
+$execfile | tee livelog.log
 
 rm livelog.log
 
